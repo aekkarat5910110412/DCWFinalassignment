@@ -24,7 +24,7 @@ const authenticated = async (req,res,next)=> {
 app.use(cors())
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Hello Worlds!')
 })
 
 app.post('/api/login', bodyParser.json(), async (req,res) => 
