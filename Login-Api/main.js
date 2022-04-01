@@ -45,7 +45,7 @@ app.post('/login', jsonParser, function (req, res, next) {
       bcrypt.compare(req.body.password, users[0].password,function(err,islogin) {
         if(islogin){
     //generate token for user login
-          var token = jwt.sign({ email:users[0].email }, keysecret);
+          var token = jwt.sign({ email:users[0].email }, keysecret,{ expiresIn: '1h' });
           res.json({status:'ok',message:'login success',token})
         }
         else{
@@ -55,7 +55,15 @@ app.post('/login', jsonParser, function (req, res, next) {
     }
   );
 })
-
+app.post('/authen', jsonParser, function (req, res, next) {
+  try{
+    const token = req.headers.authorization.split(' ')[1]
+    var decoded = jwt.verify(token, keysecret);
+    res.json({status:'ok',decoded})
+  }catch(err){
+    res.json({status:'error',message:err.message})
+  }  
+})
 app.listen(3333, function () {
   console.log('CORS-enabled web server listening on port 3333')
 })
