@@ -3,6 +3,8 @@ var cors = require('cors')
 var app = express()
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 app.use(cors())
 const mysql = require('mysql2');
@@ -14,9 +16,10 @@ const connection = mysql.createConnection({
   });
 
 app.post('/register', jsonParser, function (req, res, next) {
-    connection.execute(
+  bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
+     connection.execute(
         'INSERT INTO users (email, password, fname, llname) VALUES (?, ?, ?, ?)',
-        [req.body.email, req.body.password, req.body.fname, req.body.llname],
+        [req.body.email, hash, req.body.fname, req.body.llname],
         function(err, results, fields) {
           if(err){
               res.json({status:'error',message: err})
@@ -25,7 +28,7 @@ app.post('/register', jsonParser, function (req, res, next) {
           res.json({status:'ok'})
         }
       );
-  
+  });
 })
 
 app.listen(3333, function () {
