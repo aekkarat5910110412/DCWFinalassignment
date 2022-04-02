@@ -47,6 +47,8 @@ export default function SignInSide() {
     .then(data => {
       if(data.status == 'ok'){
         alert('login success')
+        localStorage.setItem('token',data.token)
+        window.location ='/album'
       }else{
         alert('login failed')
       }
