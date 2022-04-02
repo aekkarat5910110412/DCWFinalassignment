@@ -5,12 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import Login from './Login.js'
+import Album from './Album.js'
 
 ReactDOM.render(
   <BrowserRouter>
    <Routes>
     <Route path="/" element={<App />} />
     <Route path="/login" element={<Login />} />
+    <Route path="/album" element={<Album />} />
    
    </Routes>
   </BrowserRouter>,
