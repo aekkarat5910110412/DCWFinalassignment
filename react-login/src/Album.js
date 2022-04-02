@@ -34,6 +34,13 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const theme = createTheme();
 
 export default function Album() {
+  
+  const handleLogout = (event) => {
+    event.preventDefault();
+    localStorage.removeItem('token');
+    window.location = '/login'
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -75,8 +82,7 @@ export default function Album() {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
+              <Button variant="contained" onClick={handleLogout}>logout</Button>
             </Stack>
           </Container>
         </Box>
