@@ -4,16 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import Login from './Login.js'
-import Album from './Album.js'
+import Login from './Login'
+import Album from './Album'
 
 ReactDOM.render(
   <BrowserRouter>
    <Routes>
-    <Route path="/" element={<App />} />
-    <Route path="/login" element={<Login />} />
-    <Route path="/album" element={<Album />} />
-   
+     <Route path="/" element={<Login />} />
+     <Route path="/login" element={<Login />} />
+     <Route path="/album" element={<Album />} />
    </Routes>
   </BrowserRouter>,
   document.getElementById('root')
