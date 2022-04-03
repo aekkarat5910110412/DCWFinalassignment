@@ -40,6 +40,10 @@ export default function Album() {
     localStorage.removeItem('token');
     window.location = '/login'
   }
+  const handleEmployee = (event) => {
+    event.preventDefault();
+    window.location = '/app'
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -48,7 +52,7 @@ export default function Album() {
         <Toolbar>
           <CameraIcon sx={{ mr: 2 }} />
           <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+             BBprogrammer
           </Typography>
         </Toolbar>
       </AppBar>
@@ -69,12 +73,10 @@ export default function Album() {
               color="text.primary"
               gutterBottom
             >
-              Album layout
+             WorkProgramer
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Something short and leading about the collection below—its contents,
-              the creator, etc. Make it short and sweet, but not too short so folks
-              don&apos;t simply skip over it entirely.
+              เปิดรับสมัคร Programmer ที่มีความต้องการ จะหางาน โดยที่ท่านสามารถทำเป็นอาชีพเสริมได้
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -83,6 +85,7 @@ export default function Album() {
               justifyContent="center"
             >
               <Button variant="contained" onClick={handleLogout}>logout</Button>
+              <Button variant="contained" onClick={handleEmployee}>Employee</Button>
             </Stack>
           </Container>
         </Box>
@@ -100,16 +103,15 @@ export default function Album() {
                       // 16:9
                       pt: '56.25%',
                     }}
-                    image="https://source.unsplash.com/random"
+                    image="https://res.cloudinary.com/grand-canyon-university/image/fetch/w_750,h_564,c_fill,g_faces,q_auto,f_auto/https://www.gcu.edu/sites/default/files/2020-09/programming.jpg"
                     alt="random"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      เรียนรู้เพื่อเป็นProgrammer
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the
-                      content.
+                      การเรียนรู้สามารถเรียนรู้จากหลายส่วนยิ่งเรียนยิ่งรู้ ได้ฝึกทักษะที่มากมาย
                     </Typography>
                   </CardContent>
                   <CardActions>
