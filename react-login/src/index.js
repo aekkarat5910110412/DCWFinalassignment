@@ -6,7 +6,7 @@ import { BrowserRouter,Routes,Route } from "react-router-dom";
 import Login from './Login'
 import Album from './Album'
 import Register from './Register'
-import Empoyee from './Empoyee'
+import App from './App'
 
 ReactDOM.render(
   <BrowserRouter>
@@ -15,7 +15,7 @@ ReactDOM.render(
      <Route path="/login" element={<Login />} />
      <Route path="/album" element={<Album />} />
      <Route path="/register" element={<Register />} />
-     <Route path="/empoyee" element={<Empoyee />} />
+     <Route path="/app" element={<App />} />
    </Routes>
   </BrowserRouter>,
   document.getElementById('root')
